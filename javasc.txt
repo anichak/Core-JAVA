@@ -1,28 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>First Program</title>
-    <script src="Validations.js"></script>
-</head>
-<body>
-<h3>Type Your Name</h3>
-<input type="text" id="name"><br><br>
-<button onclick="addNames()">OK</button><br><br>
-<p id="display"></p>
-</body>
-
-
-var arr=[];
-function addNames(){
-    var textBox,length,text;
-    textBox = document.getElementById("name");
-    var name=textBox.value;
-    arr.push(name);
-    length=arr.length;
-    text="[";
-    for (var i = 0; i < length; i++) {
-        text += arr[i]+",";
-    }
-    textBox.value="";
-    document.getElementById("display").innerHTML =text;
+<html>
+  <head>
+     <script>
+	    var arr=[];
+	    function addNames(){
+		   var textBox,text,len;
+		   textBox=document.getElementById("name");
+		   var name=textBox.value;
+		   arr.push(name);
+		   len=arr.length;
+		   text="[";
+           for (var i = 0; i < len; i++) {
+		     
+                 text += arr[i]+",";
+			   
+			 
+           }
+           text+="]";
+		   document.getElementById("display").innerHTML=text;
+		   
+		   textBox.value="";
+		}
+		
+		function ascendingNames(){
+		   arr.sort();
+		   len=arr.length;
+		   var text="[";
+           for (var i = 0; i < len; i++) {
+               text += arr[i]+",";
+           }
+           text+="]";
+		   document.getElementById("display").innerHTML=text;
+		}
+		function descendingNames(){
+		   arr.sort();
+		   arr.reverse();
+		   len=arr.length;
+		   var text="[";
+           for (var i = 0; i < len; i++) {
+               text += arr[i]+",";
+           }
+           text+="]";
+		   document.getElementById("display").innerHTML=text;
+		}
+     </script>
+  </head>
+  <body>
+     <h3>Type Your Name</h3>
+     <input type="text" id="name"><br><br>
+     <button onclick="addNames()">OK</button>
+	 <button onclick="ascendingNames()">Ascending</button>
+	 <button onclick="descendingNames()">Descending</button>
+     <p id="display"></p>
+  </body>
+</html>
