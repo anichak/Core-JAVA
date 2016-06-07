@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Program</title>
+    <script src="Validations.js"></script>
+</head>
+<body>
+<h3>Type Your Name</h3>
+<input type="text" id="name"><br><br>
+<button onclick="addNames()">OK</button><br><br>
+<p id="display"></p>
+</body>
+
+
+var arr=[];
+function addNames(){
+    var textBox,length,text;
+    textBox = document.getElementById("name");
+    var name=textBox.value;
+    arr.push(name);
+    length=arr.length;
+    text="[";
+    for (var i = 0; i < length; i++) {
+        text += arr[i]+",";
+    }
+    textBox.value="";
+    document.getElementById("display").innerHTML =text;
